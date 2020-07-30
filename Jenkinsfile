@@ -1,16 +1,32 @@
-// start of pipeline
 pipeline {
- // where pipeline job will run
- agent any
- // start of stages : build, test, deploy ...
- stages {
- // start of stage : build
- stage('build') {
- // start of running steps inside one stage
- steps {
- // invoke command to build with maven
-  sh "${mavenHome}/bin/mvn clean package"
- }
- }
- } 
+    agent any
+
+    stages {
+        stage ('Compile Stage') {
+
+            steps {
+                withMaven(maven : 'maven_3_6_3') {
+                    sh 'mvn clean compile'
+                }
+            }
+        }
+
+        stage ('Testing Stage') {
+
+            steps {
+                withMaven(maven : 'maven_3_6_3') {
+                    sh 'mvn test'
+                }
+            }
+        }
+
+
+        stage ('Deployment Stage') {
+            steps {
+                withMaven(maven : 'maven_3_6_3') {
+                    sh 'mvn deploy'
+                }
+            }
+        }
+    }
 }
