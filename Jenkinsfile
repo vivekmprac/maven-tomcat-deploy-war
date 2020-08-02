@@ -1,28 +1,15 @@
 pipeline {
-
-    agent any
-    tools {
-        maven 'Maven_3.6.3' 
-    }
+    agent none
     stages {
-        stage('Compile stage') {
+        stage('build') {
+            agent any
+            options {
+                skipDefaultCheckout()
+            }
             steps {
-                sh "mvn clean compile" 
+                echo "hellow orld"
+            }
         }
-    }
-
-         stage('testing stage') {
-             steps {
-                sh "mvn test"
-        }
-    }
-
-          stage('deployment stage') {
-              steps {
-                sh "mvn deploy"
-        }
-    }
-
-  }
-
+   }
+    
 }
