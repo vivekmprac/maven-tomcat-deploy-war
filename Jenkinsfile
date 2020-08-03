@@ -1,13 +1,15 @@
 pipeline {
-    agent any
+    agent none
     stages {
         stage('build') {
-            when {
-                buildingTag()
+            agnet any 
+            options {
+                skipDefaultCheckout()
             }
             steps {
-                echo "hello world building tag1"
+                echo "hello world"
             }
+            
         }
     }
 }
