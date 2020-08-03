@@ -1,5 +1,8 @@
 pipeline {
     agent any
+    options {
+        skipDefaultCkecout()
+    }
     stages {
         stage('build') {
             agent any 
