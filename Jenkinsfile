@@ -11,7 +11,7 @@ pipeline {
         }
         stage('dev branch') {
             when {
-                brnach 'dev'
+                branch 'dev'
             }
             steps {
                 echo "runnnin in dev branch"
