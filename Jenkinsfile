@@ -1,18 +1,21 @@
 pipeline {
     agent any
-    options {
-        skipDefaultCheckout()
-    }
     stages {
-        stage('build') {
-            agent none 
-            options {
-                skipDefaultCheckout()
+        stage('build master') {
+            when {
+                branch 'master'
             }
             steps {
-                echo "hello world"
+                echo "ruuuning the build master"
             }
-            
+        }
+        stage('dev branch') {
+            when {
+                brnach 'dev'
+            }
+            steps {
+                echo "runnnin in dev branch"
+            }
         }
     }
 }
