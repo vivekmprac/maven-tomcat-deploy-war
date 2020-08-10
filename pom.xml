@@ -30,6 +30,19 @@
       <scope>test</scope>
     </dependency>
   </dependencies>
+	
+  <distributionManagement>
+	    <repository>
+	      <id>nexus</id>
+	      <name>releaseRepo</name>
+	      <url>http://3.19.219.224:8081/repository/mt-releases/</url>
+	    </repository>
+	    <snapshotRepository>
+	      <id>nexus</id>
+	      <name>snapshot repostori </name>
+	      <url>http://3.19.219.224:8081/repository/mt-snapshots/</url>
+	    </snapshotRepository>
+  </distributionManagement>
 
   <build>
     <finalName>webapp</finalName>
